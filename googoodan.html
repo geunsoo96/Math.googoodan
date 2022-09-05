@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      const root = document.getElementById("root");
+
+      // Q-1 프론트엔드 요청 : "초등학생을 위해서 구구단 표를 HTML에 출력해 주세요."
+
+      for (let i = 2; i <= 9; i++) {
+        // i를 2부터 9까지 반복문으로 출력
+        let googoodan = document.createElement("div");
+        googoodan.textContent = `${i}단`;
+        root.appendChild(googoodan);
+        for (let j = 1; j <= 9; j++) {
+          // j는 1부터 9까지 출력
+          let div = document.createElement("div");
+          div.textContent = `${i}X${j} = ${i * j}`;
+          root.appendChild(div);
+          // i --> 2부터, j --> 부터 순서대로 = (i 곱하기 j)
+        }
+      }
+
+      // Q-2. 백엔드 요청 : "스텝측정을 해야하므로, 곱셈이 몇 회 일어났는지 변수 multiplyCounter에 산출해 주세요."
+
+      let multiplyCounter = 0;
+      function math(number) {
+        for (let i = 1; i < 10; i++) {
+          console.log(number + "X" + i + "=" + number * i);
+          multiplyCounter++;
+          // for (let j = 1; j <= 9; j++) {
+        }
+      }
+      for (let i = 2; i < 10; i++) {
+        math(i);
+      }
+      console.log(multiplyCounter);
+
+      // Q-3. 실수(소숫점이 있는 수)를 위의 조건에 처리 했을 때 소숫점 첫번째 자리까지만 출력되도록 처리하세요.
+
+      let suhak = 1.39651;
+      let result = Math.floor(suhak * 10) / 10;
+      console.log(result);
+    </script>
+  </body>
+</html>
